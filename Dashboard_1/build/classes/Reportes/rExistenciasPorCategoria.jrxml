@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rExistenciasPorCategoria" language="groovy" pageWidth="800" pageHeight="792" columnWidth="760" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f10efb0b-de19-48b7-ace7-23bc6d2aaa68">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SucursalID" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[call spExistenciasCategoria($P!{SucursalID});]]>
+	</queryString>
+	<field name="CategoriaID" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Categoria" class="java.lang.String"/>
+	<field name="Existencia Actual" class="java.math.BigDecimal"/>
+	<field name="Tipo Unidad" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="123" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-18" y="-22" width="798" height="145" forecolor="#FFFFFF" backcolor="#63A9E5" uuid="91f1f35d-f1c6-4fac-bd7e-41546cb5dde0"/>
+			</rectangle>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="144" y="89" width="117" height="20" forecolor="#FFFFFF" uuid="5d0bb8e2-efad-4e7f-b89d-2bb67cfb6f6b"/>
+				<textElement>
+					<font size="15" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="88" width="142" height="20" forecolor="#FFFFFF" uuid="6c8fb9e9-d2c2-4242-849f-c2fe4184d0f9"/>
+				<textElement>
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de Emisión:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="111" y="30" width="519" height="43" forecolor="#FFFFFF" uuid="f49284a2-b63c-49ca-996c-e9677b48446e"/>
+				<textElement>
+					<font size="28" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte de existencias por categoría]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement x="40" y="11" width="112" height="20" uuid="3423bf86-0187-462d-aa49-a8dbd8ed438c"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CategoriaID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="228" y="11" width="203" height="20" uuid="23972abc-ae7a-4bc2-a150-9325e4de3801"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Categoria]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="474" y="11" width="123" height="20" uuid="c34e1f4a-e0e7-4d9a-b688-29f5f4169e2e"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Existencia Actual]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="643" y="11" width="100" height="20" uuid="e0906d7e-f854-47f9-ba58-aaec9ee12e6f"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo Unidad]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="40" y="0" width="61" height="20" uuid="f7aa0ed2-a140-4ca6-9d63-b9b0dc6a97fe"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{CategoriaID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="230" y="0" width="203" height="20" uuid="04fa492c-194f-4448-922c-2426fc78e093"/>
+				<textFieldExpression><![CDATA[$F{Categoria}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="478" y="0" width="90" height="20" uuid="e16d1b84-aa39-4aa2-a078-ad5c15e04aff"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{Existencia Actual}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="645" y="0" width="90" height="20" uuid="a2c64941-f233-417e-9c98-368484d31fb6"/>
+				<textFieldExpression><![CDATA[$F{Tipo Unidad}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="28" splitType="Stretch">
+			<textField>
+				<reportElement x="319" y="4" width="80" height="20" uuid="a6961090-750d-42d1-8de0-885da66937be"/>
+				<textElement textAlignment="Right">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de "]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="399" y="4" width="56" height="20" uuid="3dd091d5-cc01-4992-aa27-84001e2a4c3f"/>
+				<textElement>
+					<font size="15" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

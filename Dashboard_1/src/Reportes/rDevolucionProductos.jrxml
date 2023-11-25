@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rDevolucionProductos" language="groovy" pageWidth="1340" pageHeight="792" columnWidth="1300" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5f9b6cad-35ae-4e15-be3b-1caf64883701">
+	<property name="ireport.zoom" value="0.9743585500000009"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="sucursal" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[call spReporteDevoluciones();]]>
+	</queryString>
+	<field name="ProductoID" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Nombre del producto" class="java.lang.String"/>
+	<field name="Precio Unitario" class="java.lang.String"/>
+	<field name="Cantidad Devuelta" class="java.lang.Integer"/>
+	<field name="Tipo Unidad" class="java.lang.String"/>
+	<field name="Motivo Devolución" class="java.lang.String"/>
+	<field name="Fecha de Devolución" class="java.sql.Date"/>
+	<field name="Sucursal" class="java.lang.String"/>
+	<field name="Proveedor" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="144" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-22" y="-21" width="1341" height="165" forecolor="#FFFFFF" backcolor="#63A9E5" uuid="20c5b47a-ed2e-41c2-aa9a-facad7dcb874"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="373" y="31" width="657" height="49" forecolor="#FFFFFF" uuid="5ef0cd1f-0604-45a7-8da4-1cf73dc88312"/>
+				<textElement textAlignment="Center">
+					<font size="32" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte de devolución de productos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="101" width="134" height="20" forecolor="#FFFFFF" uuid="629b3024-bcd5-49bf-bf38-cbc416b8884d"/>
+				<textElement textAlignment="Center">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de Emisión:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="154" y="101" width="114" height="20" forecolor="#FFFFFF" uuid="e44bcd0c-64a5-479b-a5ed-4a1e6fc3030e"/>
+				<textElement textAlignment="Center">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="34" splitType="Stretch">
+			<staticText>
+				<reportElement x="22" y="14" width="107" height="20" uuid="fe8ab120-1f99-4abb-a540-cb6a2c526d7d"/>
+				<textElement>
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ProductoID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="161" y="14" width="147" height="20" uuid="45583dea-4a99-4976-b180-f1ea7225593a"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre del producto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="359" y="14" width="100" height="20" uuid="89bdb7ac-9ff1-4850-bb6e-9d8e35924fe7"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Precio unitario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="728" y="14" width="141" height="20" uuid="d37cb36c-c610-4eab-ba1b-9f177b1670b3"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Motivo de devolución]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="891" y="14" width="137" height="20" uuid="7d0a0726-9e9a-4f38-b57e-44a13cadb5f6"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de devolución]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="464" y="14" width="100" height="20" uuid="05cc65a2-c695-4c89-81d4-b6a85ceb78a9"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cantidad devuelta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="576" y="14" width="105" height="20" uuid="ac28d94a-16c0-479e-9d1e-9b6e06526aca"/>
+				<textElement>
+					<font size="12" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Tipo de unidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1191" y="14" width="100" height="20" uuid="618d7db1-80bc-49ef-8fee-e9058a3b04bc"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Proveedor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1060" y="14" width="100" height="20" uuid="8c414df6-8e42-4222-b5a6-ca19b54924e7"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sucursal]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="46" splitType="Stretch">
+			<textField>
+				<reportElement x="28" y="0" width="56" height="46" uuid="ee89c4b8-a6ac-4b41-b176-5ca69e9c6699"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ProductoID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="161" y="0" width="147" height="46" uuid="771241d4-76c0-43eb-b64d-0ed2316cef59"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Nombre del producto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="359" y="0" width="83" height="46" uuid="5d91b722-dae7-4040-b7af-2378d9133255"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Precio Unitario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="729" y="2" width="113" height="44" uuid="51a89294-c5cf-40e6-b0ec-9b1f7f3f979c"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Motivo Devolución}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="911" y="2" width="95" height="44" uuid="3fc80811-cf1c-4810-a00d-c8cc52ddd92d"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Fecha de Devolución}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="479" y="2" width="35" height="44" uuid="3080d5d1-76d1-4a4d-8ee5-60ae58982277"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Cantidad Devuelta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="578" y="2" width="96" height="44" uuid="3778f842-2840-4070-829a-7b2c59664875"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Tipo Unidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1191" y="2" width="100" height="44" uuid="de47079a-9424-45e9-a373-10f43adaefc5"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Proveedor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1060" y="2" width="100" height="44" uuid="dfaac831-ff6c-4469-8fab-9ab8140daafb"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Sucursal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="593" y="6" width="80" height="20" uuid="b81d11bc-3e31-4d96-aa22-e4fbf063f9fe"/>
+				<textElement textAlignment="Right">
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de "]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="673" y="6" width="40" height="20" uuid="c5c65c83-f579-4dd5-844a-ac91912152af"/>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA["de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

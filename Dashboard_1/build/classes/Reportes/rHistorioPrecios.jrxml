@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rHistorioPrecios" language="groovy" pageWidth="940" pageHeight="792" columnWidth="900" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b8635176-4642-442e-9d25-bf4f32c94e0e">
+	<property name="ireport.zoom" value="1.1000000000000005"/>
+	<property name="ireport.x" value="70"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="year" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[call sp_calcular_precios_promedio_trimestrales($P!{year});]]>
+	</queryString>
+	<field name="Nombre del Producto" class="java.lang.String"/>
+	<field name="Primer Trimestre" class="java.lang.String"/>
+	<field name="Segundo Trimestre" class="java.lang.String"/>
+	<field name="Tercer Trimestre" class="java.lang.String"/>
+	<field name="Cuarto Trimestre" class="java.lang.String"/>
+	<field name="PrecioPromedio" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="133" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-21" y="-20" width="939" height="153" forecolor="#FFFFFF" backcolor="#63A9E5" uuid="841eab16-082e-4970-b0c7-d863fe38bf47"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="10" y="96" width="140" height="20" forecolor="#FFFFFF" uuid="6bb4c9a9-bbd2-485a-9d23-123f7bec70e9"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de Emisión:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="146" y="97" width="114" height="20" forecolor="#FFFFFF" uuid="fa910126-01ff-430f-9e14-199ca5a165e3"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="163" y="0" width="581" height="87" forecolor="#FFFFFF" uuid="4451021e-de7b-4976-9334-116dbfa06242"/>
+				<textElement textAlignment="Center">
+					<font size="28" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte Histórico de Precios de Productos Año 2023]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="13" width="172" height="20" uuid="3717f138-8cef-4bc1-be2a-36be91425b35"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre del Producto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="261" y="13" width="112" height="20" uuid="8265267e-722f-4e2b-bdda-ff642b3269c8"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Primer Trimestre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="379" y="13" width="128" height="20" uuid="901f8c56-4913-45ab-adf9-7ae0df94a166"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Segundo Trimestre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="519" y="13" width="115" height="20" uuid="e34cf770-7497-4d13-90a2-7a334fa6d5c0"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tercer Trimestre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="661" y="13" width="114" height="20" uuid="7833f752-adc8-4877-a93c-1b634d72577b"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cuarto Trimestre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="794" y="13" width="93" height="20" uuid="0d7d1d71-8002-42dd-9065-175f2e3fd60b"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PrecioPromedio]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="20" y="0" width="218" height="20" uuid="129b17e7-b23d-4835-802c-07cc7fe13fad"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Nombre del Producto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="277" y="0" width="112" height="20" uuid="e33101b1-0412-45e9-909d-ef944dc37d97"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Primer Trimestre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="401" y="0" width="128" height="20" uuid="5bcee320-698b-4051-9c41-9d66e95ae0af"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Segundo Trimestre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="536" y="0" width="115" height="20" uuid="b57186a9-6024-40a9-8178-aa4d87b18cba"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Tercer Trimestre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="678" y="0" width="114" height="20" uuid="d00dff4b-12d2-4ecb-b248-79de71dc1df5"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Cuarto Trimestre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="807" y="0" width="93" height="20" uuid="c3565ad2-499c-4d56-9284-ab20d16f124d"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PrecioPromedio}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="378" y="1" width="80" height="20" uuid="c746a881-e6ff-4656-bfc0-2c5bc8e195f3"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="458" y="1" width="40" height="20" uuid="5d88cbc2-cd56-4558-8089-ab5794c0a0e0"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

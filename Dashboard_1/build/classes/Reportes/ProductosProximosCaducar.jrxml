@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ProductosProximosCaducar" language="groovy" pageWidth="1100" pageHeight="792" columnWidth="1060" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="73cfc501-1ed1-4e46-ba2f-bc56a1c10ef2">
+	<property name="ireport.zoom" value="1.2100000000000006"/>
+	<property name="ireport.x" value="405"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SucursalID" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[call spProductosProximosCaducar($P!{SucursalID});]]>
+	</queryString>
+	<field name="Producto" class="java.lang.String"/>
+	<field name="Fecha de Caducidad" class="java.lang.String"/>
+	<field name="Dias Restantes" class="java.lang.Long"/>
+	<field name="Cantidad" class="java.lang.Integer"/>
+	<field name="Tipo Unidad" class="java.lang.String"/>
+	<field name="Categoria" class="java.lang.String"/>
+	<field name="Sucursal" class="java.lang.String"/>
+	<field name="Proveedor" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="122" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-19" y="-21" width="1100" height="143" forecolor="#FFFFFF" backcolor="#63A9E5" uuid="9ad37436-adc9-452c-b132-3d32eaad4ec8"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="243" y="23" width="685" height="41" forecolor="#FFFFFF" uuid="7061256d-12b1-4360-ac6c-449ed2216941"/>
+				<textElement>
+					<font size="32" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte de productos próximos a caducar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="86" width="135" height="20" forecolor="#FFFFFF" uuid="ce2d44b0-2d9c-4e62-9f14-31406ad6dbe0"/>
+				<textElement>
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de emisión:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="149" y="87" width="154" height="20" forecolor="#FFFFFF" uuid="ec1c8fea-7e06-416b-94be-b0d53916e3b6"/>
+				<textElement>
+					<font size="15" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="1" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="28" splitType="Stretch">
+			<staticText>
+				<reportElement x="11" y="8" width="211" height="20" uuid="81f70274-7772-477c-a4c2-82959b90e366"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Producto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="243" y="8" width="87" height="20" uuid="0e433add-ee2d-4c3b-bb4c-1cf605c80d4f"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cantidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="441" y="8" width="126" height="20" uuid="15075035-1d00-4e66-8fc0-848b95e201e3"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de Caducidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="715" y="8" width="113" height="20" uuid="0db2d485-b3ee-4830-bbe0-e9f965493f50"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sucursal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="841" y="8" width="100" height="20" uuid="8b70a60d-2afd-4780-90bc-1479ca1febc6"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Proveedor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="952" y="8" width="100" height="20" uuid="ac88823a-e682-46c0-a12a-69f915224945"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dias Restantes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="339" y="8" width="100" height="20" uuid="85f72bdf-fe76-4fa6-98d4-76a566497001"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo Unidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="587" y="8" width="108" height="20" uuid="c2eab63f-a6a6-4d18-a366-35809f0c53df"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Categoria]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="11" y="0" width="211" height="20" uuid="fc8dbd78-6cbf-4d0a-b06b-4bf8e0118c31"/>
+				<textFieldExpression><![CDATA[$F{Producto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="255" y="0" width="38" height="20" uuid="9ff993bf-d13d-4064-8952-4bcc0b8884bf"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{Cantidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="468" y="0" width="84" height="20" uuid="ca932070-7f84-4334-9f77-5747a6d41db4"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{Fecha de Caducidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="588" y="0" width="108" height="20" uuid="0f95f448-45e9-49ea-b16e-d20e60d99e07"/>
+				<textFieldExpression><![CDATA[$F{Categoria}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="839" y="0" width="100" height="20" uuid="4ae54578-f322-49fc-8349-d0a076341a62"/>
+				<textFieldExpression><![CDATA[$F{Proveedor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="970" y="0" width="62" height="20" uuid="b43d13ec-4c9f-42c2-96a1-8aba1450322d"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{Dias Restantes}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="343" y="0" width="100" height="20" uuid="6f9ae91b-e600-4441-bba6-a1078d680d16"/>
+				<textFieldExpression><![CDATA[$F{Tipo Unidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="715" y="0" width="100" height="20" uuid="083f1cb9-4041-4319-8cbe-2ca62399df79"/>
+				<textFieldExpression><![CDATA[$F{Sucursal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="28" splitType="Stretch">
+			<textField>
+				<reportElement x="436" y="4" width="91" height="20" uuid="532b6f20-12f8-40af-a273-b32b1d589e3a"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="527" y="4" width="40" height="20" uuid="8b8508e2-8fa1-446e-b3d9-d1f7c71e1c99"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
